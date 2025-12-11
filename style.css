@@ -408,3 +408,503 @@ body {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ---------- Mobile app screen ---------- */
+
+.app-body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: radial-gradient(circle at top, #e0f2fe 0, #f3f4f6 55%);
+  display: flex;
+  flex-direction: column;       
+  align-items: center;          
+  padding-top: 32px;            
+  padding-bottom: 32px;         
+}
+
+
+.app-frame {
+  width: 393px;
+  height: 852px;
+  border-radius: 32px;
+  background: #f9fafb;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-status-bar {
+  height: 20px;
+  background: transparent;
+}
+
+.app-header {
+  padding: 8px 16px 6px;
+}
+
+.app-search {
+  height: 38px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0 8px 20px rgba(148, 163, 184, 0.25);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.app-search-icon {
+  margin-right: 6px;
+}
+
+.app-search-placeholder {
+  flex: 1;
+}
+
+.app-search-filter {
+  font-size: 16px;
+}
+
+.app-chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--text-main);
+}
+
+.chip-primary {
+  border-color: #f97316;
+  background: #ffedd5;
+}
+
+/* Map */
+
+.app-map-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;           /* NEW */
+}
+
+.app-map {
+  position: absolute;           /* CHANGED */
+  inset: 0;                     /* full background */
+  margin: 0;                    /* remove margins */
+  border-radius: 0;             /* we'll clip via frame, not map */
+  background: #dbeafe;
+  overflow: hidden;
+}
+
+/* NEW: p5 container */
+.map-canvas {
+  position: absolute;
+  inset: 0;                  /* fill the whole map */
+  z-index: 0;
+}
+
+.map-canvas canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* make sure roads / pods sit above the canvas */
+.map-road,
+.map-pod,
+.map-floating-icon {
+  position: absolute;
+  z-index: 1;
+}
+/* stylized "streets" */
+
+.map-road {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+}
+
+.map-road-a {
+  width: 140%;
+  height: 22px;
+  left: -20%;
+  top: 46%;
+  transform: rotate(10deg);
+}
+
+.map-road-b {
+  width: 120%;
+  height: 22px;
+  left: -10%;
+  top: 30%;
+  transform: rotate(-18deg);
+}
+
+.map-view {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Pod markers */
+
+.map-pod {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+}
+
+.map-pod-primary {
+  width: 42px;
+  height: 42px;
+  background: #3b82f6;
+  color: #ffffff;
+  left: 46%;
+  top: 42%;
+}
+
+.map-pod-label {
+  font-weight: 600;
+}
+
+.map-pod-secondary {
+  width: 32px;
+  height: 32px;
+  background: #f97316;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.map-pod-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-pod-secondary.map-pod-small {
+  left: 72%;
+  top: 30%;
+}
+
+.map-pod-alt {
+  left: 20%;
+  top: 30%;
+  background: #10b981;
+}
+
+.map-floating-icon {
+  position: absolute;
+  right: 16px;
+  top: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+}
+
+/* Bottom sheet */
+
+
+
+.app-bottom-card {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 84px; /* sits above bottom nav */
+  padding: 10px 14px 14px;
+  border-radius: 24px 24px 18px 18px;
+  background: #ffffff;
+  box-shadow: 0 -10px 28px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  transform: translateY(62%);   /* default: mostly collapsed */
+}
+
+.app-bottom-card.app-expanded {
+  transform: translateY(0%);
+}
+
+.app-bottom-card.app-peek {
+  transform: translateY(60%);
+}
+
+/* keep your app-handle etc as-is */
+
+
+.app-handle {
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  margin: 0 auto 8px;
+}
+
+.app-pod-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.app-pod-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.app-pod-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.app-pill {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.app-pill-blue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* Availability */
+
+.app-section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+/* availability layout */
+.app-availability-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.app-availability-pills {
+  display: flex;
+  gap: 3px;
+}
+
+.app-availability-pill {
+  width: 12px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.app-availability-pill.occupied {
+  background: #111827;
+}
+
+
+.app-availability-text {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* AI Forecast card */
+
+.app-ai-forecast-card {
+  margin-top: 10px;
+  border-radius: 18px;
+  background: #f4f4ff;
+  padding: 10px 11px 10px;
+  border: 1px solid #e0e7ff;
+}
+
+.app-ai-forecast-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.app-ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse-dot 1.8s ease-out infinite;
+}
+
+.app-ai-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app-ai-tag {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.app-ai-text {
+  font-size: 12px;
+  color: #4b5563;
+  margin: 0 0 6px;
+}
+
+.app-ai-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.app-ai-metric-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+.app-ai-metric-value {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Bottom nav */
+
+.app-nav {
+  height: 64px;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+}
+
+.app-nav-item {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.app-nav-item span:first-child {
+  font-size: 16px;
+}
+
+.app-nav-item-active {
+  color: #1d4ed8;
+}
+
+.app-nav {
+  height: 72px;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffffcc;
+  display: flex;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.app-nav-item {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.app-nav-item span:first-child {
+  font-size: 16px;
+}
+
+.app-nav-item-active {
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+.app-nav-fab {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -6px 20px rgba(15, 23, 42, 0.4);
+  font-size: 22px;
+}
+
+/* If later want to use PNG: 
+.app-nav-fab {
+  background: url("your-menu.png") center/cover no-repeat;
+} */
+
+.demo-tabs {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+  gap: 2px;
+  font-size: 11px;
+}
+
+.demo-tab {
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+.demo-tab-active {
+  background: #ffffff;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.demo-tabs-app {
+  margin: 4px auto 0;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
