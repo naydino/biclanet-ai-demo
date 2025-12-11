@@ -82,7 +82,7 @@ biclanet-ai-demo
 🤖 ML & AI Components
 1️⃣ ML Predictions – predictions.json
 
-This file represents the output of Inge’s ML model (for now, simulated):
+This file represents the output of our ML model (for now, simulated):
 
 Each item looks like:
 
@@ -198,77 +198,47 @@ function startAIActivity(predictions) {
 This gives the feeling that the AI system is constantly working in the background,
 even though we’re using simulated events.
 
-🧪 How to Run Locally
 
-Clone the repo:
-
-git clone https://github.com/naydino/biclanet-ai-demo.git
-cd biclanet-ai-demo
-
-
-Open in VS Code:
-
-code .
-
-
-Install the Live Server extension (by Ritwick Dey).
-
-Right-click index.html → “Open with Live Server”.
-
-The dashboard will open in your browser
-(usually at http://127.0.0.1:5500/index.html).
 
 🔁 How to Change / Replace the Simulated Data
 🔹 Update ML predictions
 
 Edit predictions.json:
 
-Add/remove entries
+- Add/remove entries
 
-Change occupancy_rate values (0–1)
+- Change occupancy_rate values (0–1)
 
-Keep the fields: pod_id, timestamp, occupancy_rate
+- Keep the fields: pod_id, timestamp, occupancy_rate
 
 When you save and refresh the page:
 
-Predicted Usage (24h) changes
+-Predicted Usage (24h) changes
 
-Small forecast bars update
+-Small forecast bars update
 
-System Activity visualization becomes calmer or more active
+-System Activity visualization becomes calmer or more active
 
-Perfect place for Inge to plug in her own model outputs.
+-Perfect place for Inge to plug in her own model outputs.
 
 🔹 Update AI recommendations
 
 Edit ai_optimizations.json:
 
-Adjust titles
+- Adjust titles
 
-Rewrite descriptions
+- Rewrite descriptions
 
-Change impact strings
+- Change impact strings
 
-The “AI Optimizations” panel will reflect the new content.
+ - The “AI Optimizations” panel will reflect the new content.
 
 🌐 Connection to Main Group Repo
 
 Main project repo:
 👉 https://github.com/i-n-a/cicla-ecopod
 
-This AI dashboard can later be:
 
-Imported as a module or
-
-Rebuilt as a React/Next.js page inside the main application
-
-The idea is that this repo is a clean playground to:
-
-Iterate on AI visualizations
-
-Test ML integration concepts
-
-Experiment without breaking the main project
 
 🔮 Future Work & Extensions
 
@@ -287,58 +257,38 @@ onValue(ref(db, "predictions"), (snapshot) => {
 
 This would turn the dashboard into a live operator view.
 
-2. Rider App – AI Forecast Screen
-
-Use app.html to prototype the mobile map screen:
-
-Selected pod card
-
-Availability bar
-
-AI forecast line, e.g.:
-
-“AI Forecast: High comfort expected for the next 1h. Humidity dropping ~12%.”
-
-Again, backed by ML predictions + some comfort rules.
 
 3. AI Chatbot Integration
 
-Add a “Ask BiclaNet AI” panel using:
+- Add a “Ask BiclaNet AI” panel using:
 
-OpenAI Assistants API or similar
+- OpenAI Assistants API or similar
 
-Context from pods, predictions, and user inputs
+- Context from pods, predictions, and user inputs
 
 Example questions:
 
-“Where should we relocate underused pods next week?”
+- “Where should we relocate underused pods next week?”
 
-“Why is IADE cluster showing anomalies after 21:00?”
+- “Why is IADE cluster showing anomalies after 21:00?”
 
-“Summarize today’s usage vs forecast.”
+- “Summarize today’s usage vs forecast.”
 
 4. More Advanced ML
 
 Later sprints could include:
 
-Time-series models for hourly demand
+- Time-series models for hourly demand
 
-Weather-based usage prediction
+- Weather-based usage prediction
 
-Anomaly detection for:
+- Anomaly detection for:
 
-power issues
+- power issues
 
-unusual lock events
+- unusual lock events
 
-abnormal occupancy patterns
+- abnormal occupancy patterns
 
-👥 Team & Roles
-
-Nadine Allan – AI Dashboard & Creative Visualization
-
-Inge – ML model & data
-
-Andrey – IoT and systems integration
 
 This demo is a shared sandbox for the AI/ML layer of BiclaNet.
