@@ -77,7 +77,7 @@ biclanet-ai-demo
 ├── ai_optimizations.json    # Simulated AI recommendations
 │
 └── app.html                 # Placeholder for Rider App AI screen (future work)
-
+```
 
 ________________________________________
 
@@ -146,7 +146,7 @@ This second screen is a **simulated Rider App** view that shows how the same AI 
     - `humidity` (0–1)
   - The app compares **current vs next** humidity to generate the “Humidity trend” label.
 
-> 🔧 Inge can replace both JSON files with her own exported predictions:
+> 🔧 can replace both JSON files with exported predictions:
 > - keep the same field names
 > - update values and timestamps  
 > The UI will automatically update the availability pills, comfort label, and forecast text.
