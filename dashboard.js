@@ -61,7 +61,7 @@ function renderPods() {
           ${capitalize(pod.status)}
       </span></td>
       <td>${pod.occupancy}</td>
-      <td><a class="pod-link" href="#">View Pod</a></td>
+      <td><a class="pod-link" href="pod.html?podId=${encodeURIComponent(pod.id)}">View Pod</a></td>
     `;
 
     tbody.appendChild(tr);
